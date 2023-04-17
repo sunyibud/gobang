@@ -47,15 +47,3 @@ graduate design 2023
 
 ## RequestAPI
 
-| service              | api                | describe       | dto                                         | vo         |
-| -------------------- | ------------------ | -------------- | ------------------------------------------- | ---------- |
-| gobang-gateway(8000) |                    |                |                                             |            |
-| gobang-auth(8001)    | /auth/emailCaptcha | 获取邮箱验证码 | {email}                                     | {key}      |
-| gobang-user(8002)    | /user/register     | 注册           | {username,password,sex,email,key,emailCode} | {username} |
-| gobang-game(8003)    |                    |                |                                             |            |
-| gobang-record(8004)  |                    |                |                                             |            |
-|                      |                    |                |                                             |            |
-|                      |                    |                |                                             |            |
-|                      |                    |                |                                             |            |
-|                      |                    |                |                                             |            |
-
