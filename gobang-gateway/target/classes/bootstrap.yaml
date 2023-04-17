@@ -1,0 +1,55 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: gobang-gateway
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+        file-extension: yaml
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+    gateway:
+#      globalcors: # 全局的跨域处理
+#        add-to-simple-url-handler-mapping: true # 解决options请求被拦截问题
+#        cors-configurations: # 这里可以自定义哪些url会匹配跨域定义
+#          '[/**]':
+#            allowedOrigins: "*"    # 这里定义允许的跨域host，如果为*则全部允许
+#            allowedMethods: "*"    # 同上
+#            allowedHeaders: "*"    # 同上
+      enabled: true # 默认开启
+      routes:
+        - id: websocket
+          uri: lb:ws://gobang-game
+          predicates: # 断言工厂
+            - Path=/ws/**
+        - id : gobang-auth
+          uri: lb://gobang-auth # 轮询负载均衡
+          predicates: # 断言工厂
+            - Path=/auth/**
+        - id: gobang-user
+          uri: lb://gobang-user
+          predicates:
+            - Path=/user/**
+        - id: gobang-game
+          uri: lb://gobang-game
+          predicates:
+            - Path=/game/**
+        - id: gobang-record
+          uri: lb://gobang-record
+          predicates:
+            - Path=/record/**
+      discovery:
+        locator:
+          enabled: true # 开启动态路由（通过应用名称找到服务的功能）
+          lower-case-service-id: true # 开启服务名称小写
+
+  main:
+    web-application-type: reactive
+  profiles:
+    active: dev
+
+

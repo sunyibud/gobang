@@ -1,0 +1,3 @@
+com\sunyi\gobang\auth\controller\PasswordController.class
+com\sunyi\gobang\auth\AuthApplication.class
+com\sunyi\gobang\auth\controller\LoginController.class

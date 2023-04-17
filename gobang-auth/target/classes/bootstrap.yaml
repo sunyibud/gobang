@@ -1,0 +1,38 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: gobang-auth
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+        file-extension: yaml
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+  mail:
+    host: smtp.163.com
+    username: sunyistruggle@163.com
+    password: QPKXJWEZTTYXMUPX
+    from: sunyistruggle@163.com
+    port: 465
+#    port: 587
+    protocol: smtp
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          ssl:
+            enable: true
+          socketFactory:
+            prot: 465
+            class: javax.net.ssl.SSLSocketFactory
+  profiles:
+    active: dev
+

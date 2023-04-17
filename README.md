@@ -4,7 +4,7 @@ graduate design 2023
 
 ## project-struct
 
-![image-20230406142022652](doc/img/project-struct.png)
+![image-20230406142022652](README.assets/project-struct.png)
 
 ## SpringCloud-rely
 
