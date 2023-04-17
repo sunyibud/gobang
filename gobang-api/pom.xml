@@ -11,17 +11,20 @@
 
     <artifactId>gobang-api</artifactId>
     <packaging>pom</packaging>
+
+    <description>gobang内网接口</description>
     <modules>
         <module>gobang-api-auth</module>
-        <module>gobang-api-biz</module>
         <module>gobang-api-user</module>
         <module>gobang-api-game</module>
         <module>gobang-api-record</module>
     </modules>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.sunyi</groupId>
+            <artifactId>gobang-common-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 </project>

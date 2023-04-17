@@ -11,9 +11,11 @@
 
     <artifactId>gobang-api-user</artifactId>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.sunyi</groupId>
+            <artifactId>gobang-api-auth</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 </project>
